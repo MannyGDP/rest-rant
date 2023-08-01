@@ -4,13 +4,13 @@ function Def(html) {
 return (
 <html>
     <head>
-        <title>Reat rant</title>
+        <title>Reat Rant</title>
     </head>
     <body>
         { html.children }
     </body>
 </html>
-)
+    )
 };
 
-module.export = Def;
+module.exports = Def;
