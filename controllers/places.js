@@ -17,4 +17,12 @@ places.get('/',(req, res) => {
     res.render('places/Index', { places });
 });
 
+places.get('/New', (req, res) => {
+    res.render('places/New');
+});
+
+places.post('/', (req, res) => {
+    res.send(200);
+});
+
 module.exports = places;
