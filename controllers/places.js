@@ -1,28 +1,28 @@
-const places = require('express').Router();
+const placesRouter = require('express').Router();
+const places = require('../models/places');
 
-places.get('/',(req, res) => {
-    const places = [{ 
-        name: 'H-Thai-ML', 
-        city: 'Seattle',
-        state: 'WA',
-        cuisines: 'Thai, Pan-Asian', 
-        pic: 'http://placekitten.com/250/250'
-     }, { 
-        name: 'Coding Cat Cafe', 
-        city: 'Phoenix', 
-        state: 'AZ', 
-        cuisines: 'Coffee, Bakery', 
-        pic: 'http://placekitten.com/250/250' 
-    }]
+placesRouter.get('/',(req, res) => {
     res.render('places/Index', { places });
 });
 
-places.get('/New', (req, res) => {
+placesRouter.get('/New', (req, res) => {
     res.render('places/New');
 });
 
-places.post('/', (req, res) => {
-    res.send(200);
+placesRouter.post('/', (req, res) => {
+    // res.send(200);
+    if (!req.body.pic) {
+        //DEFAULT image if one isnt provided
+        req.body.pic = 'http://placekitten.com/400/400';
+    }
+    if (!req.body.city) {
+        req.body.city = 'Anytown';
+    }
+    if (!req.body.state) {
+        req.body.state = 'USA';
+    }
+    places.push(req.body);
+    res.redirect('./places');
 });
 
-module.exports = places;
+module.exports = placesRouter;
