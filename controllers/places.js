@@ -13,8 +13,8 @@ placesRouter.get('/:id', (req,res) => {
     let id = Number(req.params.id);
     if (isNaN(id)) {
         res.render('Error404');
-    } else {
-        res.render('Show', { place: places[id]});
+    } else if (!places[id]) {
+        res.render('Show', { place: places[id], id });
     }
 });
 
