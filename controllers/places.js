@@ -1,37 +1,51 @@
 const placesRouter = require('express').Router();
+const db = require('../models');
 const places = require('../models/places');
 
 placesRouter.get('/',(req, res) => {
-    res.render('places/Index', { places });
-});
-
-placesRouter.get('/New', (req, res) => {
-    res.render('places/New');
-});
-
-placesRouter.get('/:id', (req,res) => {
-    let id = Number(req.params.id);
-    if (isNaN(id)) {
+    db.Place.find()
+    .then(places => {
+        res.render('places/Index', { places });
+    })
+    .catch(err => {
+        console.error(err);
         res.render('Error404');
-    } else if (!places[id]) {
-        res.render('Show', { place: places[id], id });
-    }
+    })
 });
 
 placesRouter.post('/', (req, res) => {
-    // res.send(200);
-    if (!req.body.pic) {
-        //DEFAULT image if one isnt provided
-        req.body.pic = 'http://placekitten.com/400/400';
-    }
-    if (!req.body.city) {
-        req.body.city = 'Anytown';
-    }
-    if (!req.body.state) {
-        req.body.state = 'USA';
-    }
-    places.push(req.body);
-    res.redirect('./places');
+    db.Place.create(req.body)
+    .then(() => {
+        res.redirect('/places');
+    })
+    .catch(err => {
+        console.error(err);
+        res.render('Error404');
+    })
+})
+
+placesRouter.get('/new', (req, res) => {
+    res.send('GET places/:new STUB');
+});
+
+placesRouter.get('/:id', (req,res) => {
+ res.send('GET /places/:id STUB');
+});
+
+placesRouter.get('/:id/edit', (req,res) => {
+    res.send('GET /places/:id/edit STUB');
+   });
+
+placesRouter.put('/:id', (req, res) => {
+    res.send('PUT /places/:id STUB');
+});
+
+placesRouter.delete('/:id/rant/rantId', (req, res) => {
+    res.send('DELETE /places/:id STUB');
+});
+
+placesRouter.post('/:id/rant', (req, res) => {
+    res.send('POST /places/ STUB');
 });
 
 module.exports = placesRouter;
