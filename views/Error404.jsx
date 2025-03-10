@@ -6,7 +6,7 @@ return (
     <Default>
         <main>
             <h1>404: PAGE NOT FOUND</h1>
-            <p>Opps, Sorry we can't find this page!</p>
+            <p>you suck Opps, Sorry we can't find this page!</p>
             <img src="http://placekitten.com/600/600" alt='kitten' />
         </main>
     </Default>

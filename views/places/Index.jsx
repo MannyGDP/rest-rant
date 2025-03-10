@@ -5,7 +5,7 @@ function Index({ places }) {
 return (
 <Default>
     <main>
-        <h1>PLACES INDEX PAGE</h1>
+        <h1>PLACES test INDEX PAGE</h1>
         <div className="row">
         { places.map((place, index) => (
             <div className='col-sm-6'>
