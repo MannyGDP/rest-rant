@@ -12,6 +12,10 @@ function New() {
                         <input className='form-control' id='name' name= 'name' required/>
                     </div>
                     <div className='form-group'>
+                        <label htmlFor='founded'>Year Founded</label>
+                        <input className='form-control' id='founded' name= 'founded' />
+                    </div>
+                    <div className='form-group'>
                         <label htmlFor='pic'>Place Picture</label>
                         <input className='form-control'  type='url' id='pic' name= 'pic' />
                     </div>

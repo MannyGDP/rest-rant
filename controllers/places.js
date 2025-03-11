@@ -22,10 +22,10 @@ placesRouter.post('/', (req, res) => {
         console.error(err);
         res.render('Error404');
     })
-})
+});
 
 placesRouter.get('/new', (req, res) => {
-    res.send('GET places/:new STUB');
+    res.render('places/New');
 });
 
 placesRouter.get('/:id', (req,res) => {
