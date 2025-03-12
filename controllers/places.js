@@ -28,7 +28,7 @@ placesRouter.get('/new', (req, res) => {
 });
 
 placesRouter.get('/:id', (req,res) => {
- db.place.findById(req.params.id)
+ db.Place.findById(req.params.id)
  .then(place => {
     res.render('places/Show', { place });
  })
