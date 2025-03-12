@@ -5,12 +5,12 @@ function Index({ places }) {
 return (
 <Default>
     <main>
-        <h1>PLACES test INDEX PAGE</h1>
-        <div className="row">
-        { places.map((place, index) => (
-            <div className='col-sm-6'>
+        <h1>PLACES 3/11 INDEX PAGE</h1>
+        <div className='row'>
+        { places.map(place => (
+            <div className='col-sm-6' key={place._id}>
                 <h2>
-                    <a href={ `/places/${index}`}>
+                    <a href={ `/places/${place._id}`}>
                     { place.name }
                         </a>
                         </h2>

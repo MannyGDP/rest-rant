@@ -1,6 +1,5 @@
 const placesRouter = require('express').Router();
 const db = require('../models');
-const places = require('../models/places');
 
 placesRouter.get('/',(req, res) => {
     db.Place.find()
@@ -29,7 +28,14 @@ placesRouter.get('/new', (req, res) => {
 });
 
 placesRouter.get('/:id', (req,res) => {
- res.send('GET /places/:id STUB');
+ db.place.findById(req.params.id)
+ .then(place => {
+    res.render('places/Show', { place });
+ })
+ .catch(err => {
+    console.error(err);
+    res.render('Error404');
+})
 });
 
 placesRouter.get('/:id/edit', (req,res) => {

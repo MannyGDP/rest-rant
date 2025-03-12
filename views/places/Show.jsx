@@ -6,7 +6,7 @@ function Show({ place, id }) {
         <Default>
             <main>
         <h1>{ place.name }</h1>
-        <a href={ `/places/${ id}/edit` } className='btn btn-warning'>
+        <a href={ `/places/${id}/edit` } className='btn btn-warning'>
             Edit
         </a>
         <form method='POST' action={ `/places/${ id }?_method=DELETE` } >
