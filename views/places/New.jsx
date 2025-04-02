@@ -13,7 +13,12 @@ function New() {
                     </div>
                     <div className='form-group'>
                         <label htmlFor='founded'>Year Founded</label>
-                        <input className='form-control' id='founded' name= 'founded' />
+                        <input className='form-control'
+                        id='founded'
+                        name= 'founded'
+                        type='number'
+                        value={ new Date().getFullYear() }
+                        />
                     </div>
                     <div className='form-group'>
                         <label htmlFor='pic'>Place Picture</label>
